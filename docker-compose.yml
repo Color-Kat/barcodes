@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:17
+    container_name: barcodes-db
+    environment:
+      POSTGRES_USER: barcodes
+      POSTGRES_PASSWORD: barcodes
+      POSTGRES_DB: barcodes
+    # 5433 on the host so a locally-installed postgres on 5432 doesn't clash
+    ports: ["5433:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    shm_size: 1gb
+    command: >
+      postgres
+      -c shared_buffers=1GB
+      -c work_mem=64MB
+      -c maintenance_work_mem=1GB
+      -c max_wal_size=8GB
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U barcodes"]
+      interval: 5s
+      retries: 20
+
+volumes:
+  pgdata:

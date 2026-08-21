@@ -1,0 +1,3 @@
+curl_cffi>=0.16
+psycopg[binary]>=3.2
+rapidfuzz>=3.0

@@ -1,0 +1,25 @@
+# venv / caches
+.venv/
+__pycache__/
+*.pyc
+
+# data (качается/генерируется, гигабайты)
+dumps/
+products.db
+export*.jsonl
+logs/
+*.log
+
+# APK teardown (mira) — большие бинарники, не нужны для парсеров
+mira.apk
+mira.xapk
+mira_out/
+mira_raw/
+mira_res/
+release/
+sample_product.html
+
+# WSL / local
+*:Zone.Identifier
+proxies.txt
+.env
