@@ -23,3 +23,9 @@ sample_product.html
 *:Zone.Identifier
 proxies.txt
 .env
+
+# unified sqlite build + old dbs + teardown
+barcodes.db*
+data/
+mira_teardown/
+legacy_v1/barcodes_csv.zip
